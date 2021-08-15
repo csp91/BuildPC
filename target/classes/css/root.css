@@ -1,0 +1,11 @@
+.upgradeVBox {
+    -fx-padding: 10,10,10,10;
+}
+
+.intel {
+    -fx-background-image: url("../image/intellogo.jpg");
+}
+
+.label {
+   -fx-padding: 5,5,5,5;
+}

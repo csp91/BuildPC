@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="mainVbox" alignment="TOP_CENTER" prefHeight="500.0" prefWidth="950.0" style="-fx-background-color: #cdddf7;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.buildpc.controllers.RootController">
+    <HBox maxHeight="1.7976931348623157E308" prefHeight="120.0" style="-fx-background-color: black;">
+      <children>
+         <ImageView fx:id="intelImageBtn" fitHeight="150.0" fitWidth="500.0" onMousePressed="#onDefaultPick" pickOnBounds="true" HBox.hgrow="ALWAYS">
+            <image>
+               <Image url="@../../css/image/intellogo.jpg" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <ImageView fx:id="amdImageBtn" fitHeight="150.0" fitWidth="500.0" onMousePressed="#onDefaultPick" pickOnBounds="true" HBox.hgrow="ALWAYS">
+            <image>
+               <Image url="@../../css/image/amd-logo-.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </children></HBox>
+   <Pane fx:id="welcomePane" prefHeight="1.0" prefWidth="200.0">
+      <children>
+         <Label layoutX="102.0" text="Choose a package (Intel or AMD)" textFill="#ec1414">
+            <font>
+               <Font name="Arial Black" size="45.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+   <HBox disable="true" visible="false" VBox.vgrow="ALWAYS">
+      <children>
+         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="upgradeVBox" stylesheets="@../../css/root.css" HBox.hgrow="ALWAYS">
+            <children>
+               <Label text="Hardware" underline="true">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font></Label>
+               <HBox prefHeight="45.0">
+                  <children>
+                     <Pane>
+                        <children>
+                           <Label prefWidth="100.0" stylesheets="@../../css/root.css" text="Processor" />
+                        </children>
+                     </Pane>
+                     <ComboBox id="processorCombo" fx:id="processorCombo" onAction="#onChangeDropDown" prefHeight="26.0" prefWidth="370.0" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="45.0">
+                  <children>
+                     <Pane>
+                        <children>
+                           <Label prefWidth="100.0" text="RAM" />
+                        </children>
+                     </Pane>
+                     <ComboBox fx:id="ramCombo" onAction="#onChangeDropDown" prefHeight="26.0" prefWidth="372.0" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="45.0">
+                  <children>
+                     <Pane>
+                        <children>
+                           <Label prefWidth="100.0" text="Hard Drive" />
+                        </children>
+                     </Pane>
+                     <ComboBox fx:id="hdCombo" onAction="#onChangeDropDown" prefHeight="26.0" prefWidth="372.0" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="45.0">
+                  <children>
+                     <Pane>
+                        <children>
+                           <Label prefWidth="100.0" text="Optical Drive" />
+                        </children>
+                     </Pane>
+                     <ComboBox fx:id="odCombo" onAction="#onChangeDropDown" prefHeight="26.0" prefWidth="370.0" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="45.0" VBox.vgrow="ALWAYS">
+                  <children>
+                     <Pane>
+                        <children>
+                           <Label prefWidth="100.0" text="GPU" />
+                        </children>
+                     </Pane>
+                     <ComboBox fx:id="gpuCombo" onAction="#onChangeDropDown" prefHeight="26.0" prefWidth="370.0" HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="200.0" styleClass="upgradeVBox" stylesheets="@../../css/root.css">
+            <children>
+               <Pane>
+                  <children>
+                     <Label text="Operating System" underline="true">
+                        <font>
+                           <Font name="System Bold" size="13.0" />
+                        </font></Label>
+                  </children>
+               </Pane>
+               <RadioButton fx:id="win8DefaultRadioBtn" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="30.0" text="Windows 8.1 (Default)">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="OS" />
+                  </toggleGroup>
+               </RadioButton>
+               <RadioButton fx:id="win8ProRadioBtn" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="30.0" text="Windows 8.1 Pro" toggleGroup="$OS" />
+               <RadioButton fx:id="linuxRadioBtn" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="30.0" text="Linux" toggleGroup="$OS" />
+            </children>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="260.0" styleClass="upgradeVBox" stylesheets="@../../css/root.css">
+            <children>
+               <Label text="Applications" underline="true">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font></Label>
+               <CheckBox fx:id="msStudent13Cbox" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="25.0" text="MS Office Home &amp; Student 2013" />
+               <CheckBox fx:id="msBusiness13Cbox" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="25.0" text="MS Office Home &amp; Business 2013" />
+               <CheckBox fx:id="accountingPkgCbox" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="25.0" text="Accounting Package" />
+               <CheckBox fx:id="graphicsPkgCbox" mnemonicParsing="false" onAction="#onSelectBox" prefHeight="25.0" text="Graphics Package" />
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+   <HBox alignment="CENTER_LEFT" prefHeight="100.0" visible="false" VBox.vgrow="ALWAYS">
+      <children>
+         <Pane prefHeight="100.0" prefWidth="368.0" HBox.hgrow="ALWAYS">
+            <children>
+               <Label fx:id="subTotalLabel" layoutX="85.0" layoutY="42.0" text="Label" />
+               <Label layoutX="14.0" layoutY="41.0" text="Sub Total:">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font>
+               </Label>
+               <Button fx:id="resetBtn" layoutX="8.0" layoutY="73.0" mnemonicParsing="false" onAction="#onClickResetBtn" text="Reset" />
+               <Button fx:id="calculateBtn" layoutX="76.0" layoutY="73.0" mnemonicParsing="false" onAction="#onClickCalculateBtn" text="Calculate Total" />
+            </children>
+         </Pane>
+         <Pane prefHeight="100.0" prefWidth="430.0" HBox.hgrow="ALWAYS">
+            <children>
+               <Button fx:id="summaryBtn" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" onMousePressed="#onClickSummaryBtn" prefHeight="25.0" prefWidth="119.0" text="Order Summary" />
+            </children>
+         </Pane>
+      </children></HBox>
+</VBox>
